@@ -63,6 +63,8 @@
         <test_secret_key>FLWSECK-xxxxxxxxxxxxxxxxxxxxxxxxxx-X</test_secret_key>
         <test_public_key>FLWPUBK-xxxxxxxxxxxxxxxxxxxxxxxxxx-X</test_public_key>
         <logo>https://pbs.twimg.com/profile_images/915859962554929153/jnVxGxVj_400x400.jpg</logo>
+        <titled>Modal Title</titled>
+        <description>Modal Description</description>
         <button_text>Pay Now</button_text>
         <country>NG</country>
         <payment_method>both</payment_method>
