@@ -23,6 +23,8 @@ class Flutterwave_Rave_Helper_Data extends Mage_Core_Helper_Abstract
     const XML_PATH_TEST_SECRET_KEY = 'payment/flutterwave_rave/test_secret_key';
 
     const XML_PATH_LOGO = 'payment/flutterwave_rave/logo';
+    const XML_PATH_TITLED = 'payment/flutterwave_rave/titled';
+    const XML_PATH_DESCRIPTION = 'payment/flutterwave_rave/description';
     const XML_PATH_BUTTON_TEXT = 'payment/flutterwave_rave/button_text';
     const XML_PATH_COUNTRY = 'payment/flutterwave_rave/country';
     const XML_PATH_PAYMENT_METHOD = 'payment/flutterwave_rave/payment_method';
@@ -220,17 +222,32 @@ class Flutterwave_Rave_Helper_Data extends Mage_Core_Helper_Abstract
             $email = $order->getCustomerEmail();
         }
 
+        switch ($order->getOrderCurrencyCode()) {
+            case 'GHS':
+                $country = 'GH';
+                break;
+            case 'KES':
+                $country = 'KE';
+                break;
+            case 'ZAR':
+                $country = 'ZA';
+                break;
+            default:
+                $country = 'NG';
+                break;
+        }
 
         $postfields = array();
         $postfields['PBFPubKey'] = $this->getPublicKey();
         $postfields['customer_email'] = $email;
         $postfields['customer_firstname'] = $billing->getFirstname();
         $postfields['custom_logo'] = Mage::getStoreConfig(Flutterwave_Rave_Helper_Data::XML_PATH_LOGO);
+        $postfields['custom_title'] = Mage::getStoreConfig(Flutterwave_Rave_Helper_Data::XML_PATH_TITLED);
+        $postfields['custom_description'] = Mage::getStoreConfig(Flutterwave_Rave_Helper_Data::XML_PATH_DESCRIPTION) ? Mage::getStoreConfig(Flutterwave_Rave_Helper_Data::XML_PATH_DESCRIPTION) : $this->__('Order ID: ') . $orderId;
         $postfields['pay_button_text'] = Mage::getStoreConfig(Flutterwave_Rave_Helper_Data::XML_PATH_BUTTON_TEXT);
         $postfields['customer_lastname'] = $billing->getLastname();
-        $postfields['custom_description'] = $this->__('Order ID: ') . $orderId;
         $postfields['customer_phone'] = $billing->getTelephone();
-        $postfields['country'] = Mage::getStoreConfig(Flutterwave_Rave_Helper_Data::XML_PATH_COUNTRY);
+        $postfields['country'] = $country; //Mage::getStoreConfig(Flutterwave_Rave_Helper_Data::XML_PATH_COUNTRY);
         $postfields['txref'] = $this->generateReference($orderId);
         $postfields['payment_method'] = Mage::getStoreConfig(Flutterwave_Rave_Helper_Data::XML_PATH_PAYMENT_METHOD);
         $postfields['amount'] = $order->getGrandTotal() + 0;

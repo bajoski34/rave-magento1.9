@@ -102,7 +102,7 @@
                 <sort_order>9</sort_order>
             </test_public_key>
             <logo translate="label,comment">
-                <label>Logo</label>
+                <label>Modal Logo</label>
                 <comment>Put a square logo link(Optional).</comment>
                 <frontend_type>text</frontend_type>
                 <sort_order>4</sort_order>
@@ -111,6 +111,26 @@
                 <show_in_store>1</show_in_store>
                 <sort_order>10</sort_order>
             </logo>
+            <titled translate="label,comment">
+                <label>Modal Title</label>
+                <comment>Enter your Modal title(Optional).</comment>
+                <frontend_type>text</frontend_type>
+                <sort_order>4</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                <sort_order>10</sort_order>
+            </titled>
+            <description translate="label,comment">
+                <label>Modal Description</label>
+                <comment>Enter your modal description(Optional).</comment>
+                <frontend_type>text</frontend_type>
+                <sort_order>4</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                <sort_order>10</sort_order>
+            </description>
             <country translate="label">
               <label>Country</label>
               <comment>Select country of operation</comment>
