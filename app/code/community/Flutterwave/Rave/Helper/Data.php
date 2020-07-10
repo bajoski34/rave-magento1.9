@@ -227,7 +227,7 @@ class Flutterwave_Rave_Helper_Data extends Mage_Core_Helper_Abstract
                 $country = 'GH';
                 break;
             case 'ZMK':
-                $country = 'ZMW';
+                $currency = 'ZMW';
                 break;
             case 'KES':
                 $country = 'KE';
