@@ -226,8 +226,8 @@ class Flutterwave_Rave_Helper_Data extends Mage_Core_Helper_Abstract
             case 'GHS':
                 $country = 'GH';
                 break;
-            case 'ZMW':
-                $country = 'ZM';
+            case 'ZMK':
+                $country = 'ZMW';
                 break;
             case 'KES':
                 $country = 'KE';
